@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>sarthak is here</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <h1>Sarthak is here </h1>
+    <h2>currently the in ugsot</h2>
+    <p> Flow (intro chhota, ICP aur personas pe zyada time):
+
+\), isliye slides par likha hai “to be validated”. Interviews ke baad inhe update karna.
+
+Numbers par dhyan do</p>
+<h1 style="color: red;">hi Everyone ........!</h1>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhEK4yU-qmhAOsAivtPddDipT-lkSc04-gtp0NI5Lesg&s=10" alt="Lenskart Eyeglasses" width="300">
+
+<h3>Select and Play Audio</h3>
+  <input type="file" id="audioInput" accept="audio/*">
+  <br><br>
+  <audio id="audioPlayer" controls style="display:none;"></audio>
+
+  <script>
+    const audioInput = document.getElementById('audioInput');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    audioInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        audioPlayer.src = URL.createObjectURL(file);
+        audioPlayer.style.display = 'block';
+        audioPlayer.play();
+        
+      }
+    });
+  </script>
+
+  <h3>Select and Play Video</h3>
+  <input type="file" id="videoInput" accept="video/*">
+  <br><br>
+  <video id="videoPlayer" width="480" controls style="display:none; border-radius: 8px;"></video>
+
+  <script>
+    const videoInput = document.getElementById('videoInput');
+    const videoPlayer = document.getElementById('videoPlayer');
+
+    videoInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        videoPlayer.src = URL.createObjectURL(file);
+        videoPlayer.style.display = 'block';
+        videoPlayer.play();
+      }
+    });
+  </script>
+<hr>
+<hr>
+
+<h2>Next part is</h2>   
+<h1>Heading Level 1 (Largest)</h1>
+<h2>Heading Level 2</h2>
+<h3>Heading Level 3</h3>
+<h4>Heading Level 4</h4>
+<h5>Heading Level 5</h5>
+<h6>Heading Level 6 (Smallest)</h6>
+
+<!-- 2. Doosri website open karne ke liye -->
+  <a href="https://www.google.com" target="_blank">sarthaks google</a>
+
+  <br><br>
+
+  <!-- 3. Apne hi project ka doosra page kholne ke liye -->
+  <a href="about.html">About Us Page</a>
+
+  <br><br>
+
+  <!-- 4. Direct phone call lagane ke liye -->
+  <a href="tel:+919876543210">Call Us</a>
+
+  <br><br>
+
+  <!-- 5. Direct email app kholne ke liye -->
+  <a href="mailto:example@gmail.com">Send Email</a>
+
+
+</body>
+</html>

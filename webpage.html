@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOG IN. NO EXCUSES.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f1e8;
+    --ink: #000;
+    --yellow: #ffe600;
+    --red: #ff3b30;
+    --blue: #2d4bff;
+    --green: #00c46a;
+    --border: 4px solid var(--ink);
+    --shadow: 8px 8px 0 var(--ink);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Space Mono', monospace;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image:
+      linear-gradient(var(--ink) 1px, transparent 1px),
+      linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+    background-blend-mode: soft-light;
+  }
+
+  /* ---------- Top marquee ---------- */
+  .marquee {
+    background: var(--ink); color: var(--yellow);
+    border-bottom: var(--border);
+    overflow: hidden; white-space: nowrap;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 14px;
+    padding: 10px 0;
+  }
+  .marquee span { display: inline-block; padding-left: 100%; animation: scroll 18s linear infinite; }
+  @keyframes scroll { to { transform: translateX(-100%); } }
+
+  /* ---------- Nav ---------- */
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 28px; border-bottom: var(--border); background: var(--paper);
+  }
+  .brand { font-family: 'Archivo Black', sans-serif; font-size: 26px; text-transform: uppercase; letter-spacing: -1px; }
+  .brand b { background: var(--ink); color: var(--yellow); padding: 0 8px; margin-right: 4px; }
+  nav a {
+    font-weight: 700; text-transform: uppercase; color: var(--ink); text-decoration: none;
+    border: 3px solid var(--ink); padding: 8px 14px; background: var(--yellow);
+    box-shadow: 4px 4px 0 var(--ink); transition: transform .08s, box-shadow .08s;
+  }
+  nav a:hover { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+
+  /* ---------- Layout ---------- */
+  main {
+    flex: 1; display: grid; grid-template-columns: 1.1fr 1fr;
+    gap: 48px; align-items: center;
+    max-width: 1200px; width: 100%; margin: 0 auto; padding: 56px 28px;
+  }
+
+  /* ---------- Hero text ---------- */
+  .hero h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(52px, 9vw, 120px);
+    line-height: .92; text-transform: uppercase; letter-spacing: -3px;
+  }
+  .hero h1 .hl { background: var(--yellow); padding: 0 10px; border: var(--border); display: inline-block; transform: rotate(-2deg); box-shadow: var(--shadow); }
+  .hero h1 .out { color: var(--paper); -webkit-text-stroke: 3px var(--ink); }
+  .hero p {
+    margin-top: 32px; max-width: 460px; font-size: 17px; line-height: 1.6; font-weight: 700;
+    border-left: 10px solid var(--red); padding-left: 18px;
+  }
+  .stickers { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .sticker {
+    border: 3px solid var(--ink); padding: 6px 12px; font-weight: 700; text-transform: uppercase; font-size: 13px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .sticker:nth-child(1) { background: var(--blue); color: #fff; transform: rotate(-3deg); }
+  .sticker:nth-child(2) { background: var(--green); transform: rotate(2deg); }
+  .sticker:nth-child(3) { background: var(--red); color: #fff; transform: rotate(-1deg); }
+
+  /* ---------- Card ---------- */
+  .card {
+    background: #fff; border: var(--border); box-shadow: 14px 14px 0 var(--ink);
+    position: relative;
+  }
+  .card-head {
+    background: var(--ink); color: var(--yellow);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .dots { display: flex; gap: 8px; }
+  .dots i { width: 14px; height: 14px; border: 2px solid var(--yellow); display: block; }
+  .dots i:first-child { background: var(--red); }
+  .card-body { padding: 30px 28px 28px; }
+  .card h2 { font-family: 'Archivo Black', sans-serif; font-size: 38px; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 6px; }
+  .card .sub { font-size: 14px; margin-bottom: 26px; }
+
+  .field { margin-bottom: 20px; }
+  label.lbl { display: block; font-weight: 700; text-transform: uppercase; font-size: 13px; margin-bottom: 6px; letter-spacing: 1px; }
+  .input-row { display: flex; }
+  input[type=email], input[type=password], input[type=text] {
+    flex: 1; min-width: 0; font: inherit; font-size: 16px; font-weight: 700;
+    border: var(--border); background: var(--paper); padding: 14px; border-radius: 0; outline: none;
+    transition: background .1s, box-shadow .1s, transform .1s;
+  }
+  input:focus { background: var(--yellow); box-shadow: 6px 6px 0 var(--ink); transform: translate(-3px, -3px); }
+  input::placeholder { color: #555; font-weight: 400; }
+  .field.invalid input { background: #ffd9d6; border-color: var(--red); }
+  .toggle {
+    border: var(--border); border-left: none; background: var(--ink); color: var(--yellow);
+    font: inherit; font-weight: 700; text-transform: uppercase; font-size: 12px; padding: 0 14px; cursor: pointer;
+  }
+  .toggle:hover { background: var(--red); color: #fff; }
+  .err { color: var(--red); font-weight: 700; font-size: 13px; margin-top: 6px; min-height: 18px; text-transform: uppercase; }
+
+  .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; font-size: 14px; font-weight: 700; }
+  .check { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; text-transform: uppercase; }
+  .check input { display: none; }
+  .box { width: 26px; height: 26px; border: 3px solid var(--ink); background: #fff; display: grid; place-items: center; font-size: 18px; color: transparent; }
+  .check input:checked + .box { background: var(--yellow); color: var(--ink); }
+  .row a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 3px; }
+  .row a:hover { background: var(--ink); color: var(--yellow); text-decoration: none; }
+
+  .btn {
+    width: 100%; font-family: 'Archivo Black', sans-serif; font-size: 22px; text-transform: uppercase;
+    border: var(--border); background: var(--blue); color: #fff; padding: 16px; cursor: pointer;
+    box-shadow: var(--shadow); transition: transform .08s, box-shadow .08s, background .1s; letter-spacing: 1px;
+  }
+  .btn:hover { background: var(--red); }
+  .btn:active, .btn.loading { transform: translate(8px, 8px); box-shadow: 0 0 0 var(--ink); }
+  .btn.loading { pointer-events: none; background: var(--ink); color: var(--yellow); }
+
+  .or { text-align: center; margin: 24px 0 18px; font-weight: 700; text-transform: uppercase; position: relative; }
+  .or::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 3px solid var(--ink); z-index: 0; }
+  .or span { background: #fff; padding: 0 12px; position: relative; z-index: 1; }
+
+  .socials { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .soc {
+    font: inherit; font-weight: 700; text-transform: uppercase; padding: 12px; cursor: pointer;
+    border: 3px solid var(--ink); background: #fff; box-shadow: 4px 4px 0 var(--ink);
+    transition: transform .08s, box-shadow .08s, background .1s;
+  }
+  .soc:hover { background: var(--yellow); }
+  .soc:active { transform: translate(4px, 4px); box-shadow: none; }
+
+  .signup { margin-top: 24px; text-align: center; font-weight: 700; font-size: 14px; }
+  .signup a { background: var(--ink); color: var(--yellow); padding: 2px 8px; text-decoration: none; text-transform: uppercase; }
+  .signup a:hover { background: var(--red); color: #fff; }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed; right: 24px; bottom: 24px; max-width: 320px;
+    border: var(--border); box-shadow: var(--shadow); padding: 16px 20px;
+    font-weight: 700; text-transform: uppercase; background: var(--green);
+    transform: translateX(150%); transition: transform .25s steps(5);
+  }
+  .toast.bad { background: var(--red); color: #fff; }
+  .toast.show { transform: none; }
+
+  footer { border-top: var(--border); background: var(--ink); color: var(--paper); text-align: center; padding: 14px; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; }
+
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; gap: 40px; padding: 36px 18px; }
+    .hero h1 { letter-spacing: -2px; }
+    nav { padding: 14px 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="marquee"><span>★ LOG IN ★ NO FLUFF ★ NO GRADIENTS ★ JUST ACCESS ★ LOG IN ★ NO FLUFF ★ NO GRADIENTS ★ JUST ACCESS ★</span></div>
+
+<nav>
+  <div class="brand"><b>RAW</b>SPACE</div>
+  <a href="#">Sign up</a>
+</nav>
+
+<main>
+  <section class="hero">
+    <h1>Get <span class="hl">in.</span><br>Stop <span class="out">scrolling.</span></h1>
+    <p>No soft shadows. No rounded corners. No apologies. Enter your credentials and get to work.</p>
+    <div class="stickers">
+      <div class="sticker">Fast</div>
+      <div class="sticker">Secure</div>
+      <div class="sticker">Honest</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <span>/ login.exe</span>
+      <div class="dots"><i></i><i></i><i></i></div>
+    </div>
+    <div class="card-body">
+      <h2>Sign in</h2>
+      <p class="sub">Welcome back. Prove it's you.</p>
+
+      <form id="form" novalidate>
+        <div class="field" id="f-email">
+          <label class="lbl" for="email">Email</label>
+          <div class="input-row">
+            <input type="email" id="email" placeholder="YOU@DOMAIN.COM" autocomplete="email">
+          </div>
+          <div class="err" id="e-email"></div>
+        </div>
+
+        <div class="field" id="f-password">
+          <label class="lbl" for="password">Password</label>
+          <div class="input-row">
+            <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+            <button type="button" class="toggle" id="toggle">Show</button>
+          </div>
+          <div class="err" id="e-password"></div>
+        </div>
+
+        <div class="row">
+          <label class="check"><input type="checkbox"><span class="box">✕</span> Remember me</label>
+          <a href="#">Forgot?</a>
+        </div>
+
+        <button class="btn" id="submit" type="submit">Enter →</button>
+      </form>
+
+      <div class="or"><span>or</span></div>
+
+      <div class="socials">
+        <button class="soc" type="button">Google</button>
+        <button class="soc" type="button">GitHub</button>
+      </div>
+
+      <p class="signup">No account? <a href="#">Create one</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 RAWSPACE — Built ugly on purpose</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+  const $ = id => document.getElementById(id);
+  const email = $('email'), pass = $('password');
+
+  // Show / hide password
+  $('toggle').onclick = () => {
+    const hidden = pass.type === 'password';
+    pass.type = hidden ? 'text' : 'password';
+    $('toggle').textContent = hidden ? 'Hide' : 'Show';
+  };
+
+  // Validation
+  function setError(name, msg) {
+    $('e-' + name).textContent = msg;
+    $('f-' + name).classList.toggle('invalid', !!msg);
+    return !msg;
+  }
+  const checkEmail = () => setError('email',
+    !email.value.trim() ? '! Email required' :
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) ? '! Not a valid email' : '');
+  const checkPass = () => setError('password',
+    !pass.value ? '! Password required' :
+    pass.value.length < 6 ? '! Min 6 characters' : '');
+
+  email.addEventListener('blur', checkEmail);
+  pass.addEventListener('blur', checkPass);
+  email.addEventListener('input', () => $('f-email').classList.contains('invalid') && checkEmail());
+  pass.addEventListener('input', () => $('f-password').classList.contains('invalid') && checkPass());
+
+  function toast(msg, bad) {
+    const t = $('toast');
+    t.textContent = msg;
+    t.className = 'toast show' + (bad ? ' bad' : '');
+    clearTimeout(t._h);
+    t._h = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // Submit (demo — replace setTimeout with your real API call)
+  $('form').addEventListener('submit', e => {
+    e.preventDefault();
+    const ok = [checkEmail(), checkPass()].every(Boolean);
+    if (!ok) return toast('Fix the errors. Try again.', true);
+
+    const btn = $('submit');
+    btn.classList.add('loading');
+    btn.textContent = 'Loading...';
+    setTimeout(() => {
+      btn.classList.remove('loading');
+      btn.textContent = 'Enter →';
+      toast('Access granted ✓');
+    }, 1300);
+  });
+</script>
+</body>
+</html>
+</body>
+</html>
